@@ -22,7 +22,7 @@ struct ContentView: View {
     
     var body: some View {
         ZStack {
-            Color.purple
+            LinearGradient(colors: [.blue, .black], startPoint: .top, endPoint: .bottom)
                 .ignoresSafeArea()
             VStack(spacing: 20){
                 VStack {
@@ -30,7 +30,7 @@ struct ContentView: View {
                         .foregroundColor(.white)
                     Text(countries[correctAnwser])
                         .foregroundColor(.white)
-                        .bold()
+                        .font(.largeTitle)
                 }
                 ForEach(0..<3) { number in
                     Button {
@@ -48,6 +48,7 @@ struct ContentView: View {
             Text("Your score is ???")
         }
     }
+    
     func flagTapped(_ number: Int){
         if number == correctAnwser {
             scoreTitle = "Correct"
@@ -57,7 +58,7 @@ struct ContentView: View {
         showingScore = true
     }
     
-    func askQuestion(){
+    func askQuestion() {
         countries.shuffled()
         correctAnwser = Int.random(in: 0...2)
     }
