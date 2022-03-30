@@ -20,7 +20,10 @@ struct ContentView: View {
             VStack(spacing: 20){
                 VStack {
                     Text("Choose the correct flag:")
+                        .foregroundColor(.white)
                     Text(countries[correctAnwser])
+                        .foregroundColor(.white)
+                        .bold()
                 }
                 ForEach(0..<3) { number in
                     Button {
